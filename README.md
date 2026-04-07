@@ -8,11 +8,17 @@ L'apprentissage de la guitare se heurte souvent à un obstacle biomécanique maj
 
 ---
 
+## 📄 Le Document PDF (Livre Blanc)
+
+Ce dépôt héberge le document de référence détaillant cette logique d'optimisation. Il s'adresse aux musiciens souhaitant comprendre l'architecture de leur manche, ainsi qu'aux développeurs voulant implémenter des fonctions de transposition musicales.
+
+👉 **[Consulter ou télécharger le PDF complet ici : Algorithme-Transposition-accords-Guitare.pdf](./Algorithme-Transposition-accords-Guitare.pdf)**
+
+---
+
 ## 🎯 Le Concept : Musique et Ergonomie
 
 En guitare acoustique ou électrique, un accord "barré" (comme le Fa majeur ou le Si mineur) exige une force de pince importante qui génère des douleurs, de la fatigue et un blocage rythmique chez les débutants. Plutôt que de forcer sur les articulations, nous utilisons la théorie musicale et les mathématiques pour modifier la tonalité matérielle de l'instrument grâce à un **capodastre**.
-
-Ce dépôt héberge le document de référence détaillant cette logique d'optimisation.
 
 ## 🧮 La Logique de Transposition (Modulo 12)
 
@@ -23,7 +29,7 @@ Lorsqu'un guitariste place un capodastre sur la case `n` de son manche, il augme
 
 La transposition se résout via une équation d'arithmétique modulaire simple pour éviter les index négatifs ou hors limites lors du calcul :
 
-$$index_{nouveau} = (index_{original} - capo + 12) \pmod{12}$$
+`index_nouveau = (index_original - capo + 12) % 12`
 
 ### L'Algorithme d'Optimisation du Capodastre
 
@@ -33,12 +39,6 @@ Le but du script n'est pas seulement de transposer, mais de déterminer la posit
 * **Points négatifs :** Le décalage mathématique génère un nouvel accord barré complexe, annulant le bénéfice du capodastre.
 
 La boucle évalue les combinaisons et retourne la variable `bestCapo` ayant le score cumulé le plus élevé.
-
-## 📄 Le Document PDF (Livre Blanc)
-
-Le fichier `Algorithme-Transposition-accords-Guitare.pdf` inclus dans ce dépôt est un livre blanc technique et pédagogique. Il s'adresse :
-* **Aux musiciens :** Pour comprendre l'architecture de leur manche et contourner leurs difficultés techniques sans jargon académique inutile.
-* **Aux développeurs :** Pour comprendre et implémenter des fonctions de transposition de notes dans leurs applications web ou musicales (Javascript, Python, C++...).
 
 ## 🛠 Intégration Web (Open Source Mindset)
 
