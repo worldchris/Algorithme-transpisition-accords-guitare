@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithme de Transposition pour Guitare : Contourner les Accords Barrés</title>
+    <meta name="description" content="Documentation technique et mathématique de l'algorithme de transposition d'accords pour guitare (Modulo 12). Simplifiez vos tablatures et évitez les barrés.">
+    <link rel="canonical" href="https://worldchris.github.io/Algorithme-transpisition-accords-guitare/" />
+    
+    <style>
+        /* CSS esprit GitHub (Minimaliste, lisible, orienté développeur) */
+        :root {
+            --color-text: #24292e;
+            --color-link: #0366d6;
+            --color-link-hover: #0056b3;
+            --color-bg: #ffffff;
+            --color-code-bg: #f6f8fa;
+            --color-border: #e1e4e8;
+            --color-hero-bg: #f1f8ff;
+            --color-hero-border: #0366d6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            word-wrap: break-word;
+        }
+
+        h1, h2, h3 { margin-top: 24px; margin-bottom: 16px; font-weight: 600; line-height: 1.25; }
+        h1 { font-size: 2em; border-bottom: 1px solid var(--color-border); padding-bottom: 0.3em; margin-bottom: 30px;}
+        h2 { font-size: 1.5em; border-bottom: 1px solid var(--color-border); padding-bottom: 0.3em; margin-top: 40px;}
+        h3 { font-size: 1.25em; }
+
+        a { color: var(--color-link); text-decoration: none; font-weight: 500;}
+        a:hover { text-decoration: underline; color: var(--color-link-hover); }
+
+        p { margin-top: 0; margin-bottom: 16px; }
+        ul { padding-left: 2em; margin-bottom: 16px; }
+
+        /* Bloc de liens prioritaires (Hero) */
+        .hero-links {
+            background-color: var(--color-hero-bg);
+            border-left: 4px solid var(--color-hero-border);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .hero-links ul { list-style-type: none; padding: 0; margin: 0; }
+        .hero-links li { margin-bottom: 10px; }
+        .hero-links li:last-child { margin-bottom: 0; }
+
+        /* Style du code */
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 85%;
+            background-color: rgba(27,31,35,0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: var(--color-code-bg);
+            border-radius: 6px;
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+        }
+        pre code { background-color: transparent; padding: 0; }
+
+        .btn-download {
+            display: inline-block;
+            background-color: #2ea44f;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+        .btn-download:hover { background-color: #2c974b; text-decoration: none; color: white; }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+            font-size: 0.9em;
+            color: #586069;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Algorithme de Transposition pour Guitare</h1>
+        
+        <div class="hero-links">
+            <ul>
+                <li>▶️ <strong>Outil en ligne gratuit :</strong> <a href="https://transposeur.guitaretoday.com/">Accéder au Transposeur Magique d'Accords</a></li>
+                <li>▶️ <strong>Méthode visuelle complète :</strong> <a href="https://store.guitaretoday.com/downloads/adieu-les-barres-a-la-guitare-la-methode-visuelle-guide-numerique-video/">Adieu les barrés à la guitare (Version Numérique)</a></li>
+            </ul>
+        </div>
+        
+        <p>L'apprentissage de la guitare se heurte souvent à un obstacle biomécanique majeur : les accords barrés. Cette page documente une solution algorithmique basée sur l'arithmétique modulaire pour simplifier n'importe quelle grille d'accords ou tablature.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>📥 Le Document PDF (Livre Blanc)</h2>
+            <p>Ce dépôt héberge le document de référence détaillant cette logique d'optimisation. Il s'adresse aux musiciens souhaitant comprendre l'architecture de leur manche, ainsi qu'aux développeurs voulant implémenter des fonctions de transposition musicales.</p>
+            
+            <a href="https://raw.githubusercontent.com/worldchris/Algorithme-transpisition-accords-guitare/main/Algorithme-Transposition-accords-Guitare.pdf" class="btn-download" download>⬇️ Télécharger le PDF Complet (Livre Blanc)</a>
+            <p><small><em>Le téléchargement direct garantit l'interactivité des liens internes du document.</em></small></p>
+        </section>
+
+        <section>
+            <h2>🎯 Le Concept : Musique et Ergonomie</h2>
+            <p>En guitare acoustique ou électrique, un accord "barré" (comme le Fa majeur ou le Si mineur) exige une force de pince importante qui génère des douleurs, de la fatigue et un blocage rythmique chez les débutants. Plutôt que de forcer sur les articulations de la main gauche, nous utilisons la théorie musicale et les mathématiques pour modifier la tonalité matérielle de l'instrument grâce à l'utilisation d'un <strong>capodastre</strong>.</p>
+        </section>
+
+        <section>
+            <h2>🧮 La Logique de Transposition (Modulo 12)</h2>
+            <p>La musique occidentale divise l'octave en 12 demi-tons équidistants. Nous modélisons l'espace musical sous forme d'un tableau indexé (Array) de base 12 :</p>
+            <pre><code>const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];</code></pre>
+            
+            <p>Lorsqu'un guitariste place un capodastre sur la case <code>n</code> de son manche, il augmente la fréquence de toutes les cordes. Pour conserver la tonalité originale d'une chanson et pouvoir chanter par-dessus, il faut décaler chaque accord de la partition initiale de <code>-n</code> demi-tons.</p>
+            
+            <p>La transposition se résout via une équation d'arithmétique modulaire simple pour éviter les index négatifs ou hors limites lors du calcul scripté :</p>
+            <pre><code>let index_nouveau = (index_original - capo + 12) % 12;</code></pre>
+
+            <h3>L'Algorithme d'Optimisation du Capodastre</h3>
+            <p>Le but de notre script n'est pas seulement de transposer, mais de déterminer la position <strong>ergonomique optimale</strong>. L'algorithme attribue un système de scoring à chaque position possible sur le manche (de la frette 0 à la frette 7) :</p>
+            <ul>
+                <li><strong>Points positifs :</strong> L'accord généré est une fondamentale "ouverte" facile à jouer (C, D, E, G, A) ou un accord de base récurrent (Am, Em).</li>
+                <li><strong>Points négatifs :</strong> Le décalage mathématique génère un nouvel accord barré complexe, annulant le bénéfice de l'utilisation du capodastre.</li>
+            </ul>
+            <p>La boucle évalue les combinaisons et retourne la variable de la case de capodastre ayant le score cumulé le plus élevé.</p>
+        </section>
+
+        <section>
+            <h2>🛠 Intégration Web pour Développeurs</h2>
+            <p>Si vous administrez un site de tablatures, un éditeur de paroles ou un blog musical, épargnez le calcul mental complexe à vos utilisateurs.</p>
+            <p>Voici un snippet HTML pur, prêt à l'emploi, à intégrer dans vos pages web pour proposer un lien vers la transposition automatique à vos visiteurs :</p>
+
+<pre><code>&lt;!-- Bouton Transposeur d'Accords Guitare Today --&gt;
+&lt;div style="text-align: center; margin: 20px 0;"&gt;
+  &lt;a href="https://transposeur.guitaretoday.com/" target="_blank" style="background-color: #24292e; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: sans-serif; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"&gt;
+    🎸 Simplifier ces accords (Calculateur Capodastre)
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Créé par <strong>Guitare Today</strong>. Outils web interactifs, calculateurs algorithmiques et méthodes visuelles pour débloquer l'apprentissage de la guitare.</p>
+    </footer>
+
+</body>
+</html>
